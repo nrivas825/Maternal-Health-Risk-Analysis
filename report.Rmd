@@ -1,0 +1,51 @@
+---
+title: "Maternal Health Risk: Exploratory Analysis"
+author: "Natalie Rivas"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    df_print: paged
+    code_folding: show
+---
+```{r setup, include=FALSE}
+source("R/load_data.R")
+source("R/clean_data.R")
+source("R/create_table.R")
+source("R/create_figure.R")
+```
+
+# Introduction
+
+Maternal health during pregnancy can be influenced by several physiological and demographic factors. This analysis uses the Maternal Health Risk Data Set, which contains measurements for age, systolic blood pressure, diastolic blood pressure, blood glucose level, body temperature, heart rate, and a categorical maternal health risk level. The data set contains three risk categories: low risk, mid risk, and high risk.
+
+The goal of this exploratory analysis is to examine how selected health measurements differ across the three maternal health risk groups. Specifically, I will:
+
+1. Summarize the number of observations and average values of the main health measures within each risk group.
+2. Visualize the distribution of systolic blood pressure across risk groups to assess whether blood pressure differs across the reported risk levels.
+
+# Analysis
+## Table
+### Summary of Health Measures by Risk Level
+```{r, table}
+kable(
+  summary_table,
+  digits = 2,
+  caption = "Maternal Health Characteristics by Risk Level"
+) %>%
+  kable_styling(full_width = FALSE)
+```
+
+
+#### Table Description
+The table summarizes the number of observations and mean health measures for each reported maternal health risk level. It includes 272 participants in the high risk group, 406 in the low risk group, and 336 in the mid risk group. The high risk group had the highest mean age (36.22 years), systolic blood pressure (124.19 mmHg), diastolic blood pressure (85.07 mmHg), blood glucose (12.12 mmol/L), and heart rate (76.74 bpm). The low risk group had the lowest mean values for these measures, while the mid risk group generally fell between the low and high risk groups. Mean body temperature was similar across the three groups, ranging from 98.37°F in the low risk group to 98.90°F in the high risk group.
+
+## Figure
+### Systolic Blood Pressure by Risk Level
+```{r, figure}
+maternal_figure
+```
+
+#### Figure Description
+The figure displays the distribution of systolic blood pressure (in mmHg) for each reported maternal health risk level. The boxplots indicate that the high risk group generally experiences elevated systolic blood pressure compared to the other groups, featuring a higher median of approximately 130 mmHg and an interquartile range spanning from 120 to 140 mmHg. In contrast, both the low risk and mid risk categories demonstrate lower median systolic blood pressures, with the top of their interquartile ranges resting at 120 mmHg. While the high risk group contains two distinct low-value outliers below 90 mmHg, the overall distributions suggest a clear association between higher systolic blood pressure and a higher maternal health risk classification.
