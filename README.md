@@ -13,6 +13,8 @@ This project explores the relationship between demographic and physiological cha
 - `R/create_figure.R`: Generates the boxplot showing systolic blood pressure by maternal risk level.
 - `report.Rmd`: Contains the written report and displays the analysis results, table, and figure.
 - `Makefile`: Provides the command used to generate the final report.
+- `.gitignore`: Specifies files and folders that Git should ignore when tracking changes.
+- `README.md`: Describes the project, repository contents, and instructions for generating the final report.
 
 ## Generating the Report
 
