@@ -5,3 +5,6 @@ report:
 
 clean:
 	rm -f report.html
+	
+install:
+	Rscript -e 'renv::restore()'
